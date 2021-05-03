@@ -26,7 +26,7 @@ class _HomeState extends State<Home> {
               floating: false,
               elevation: 0,
               expandedHeight: MediaQuery.of(context).size.height,
-              backgroundColor: MyColor.blue,
+              backgroundColor: Colors.transparent,
               collapsedHeight: 56,
               flexibleSpace: LayoutBuilder(
                   builder: (BuildContext context, BoxConstraints constraints) {
@@ -34,25 +34,23 @@ class _HomeState extends State<Home> {
                 return FlexibleSpaceBar(
                   centerTitle: true,
                   title: Text(
-                    height == 56 ? "DONGHYUN's WORLD" : "",
-                    style: TextStyle(fontSize: 12.0,fontWeight: FontWeight.bold),
+                    "",
+                    style:
+                        TextStyle(fontSize: 12.0, fontWeight: FontWeight.bold),
                   ),
                   background: Container(
                     padding: EdgeInsets.all(30),
-                    decoration:BoxDecoration(
-                      // color: Colors.orange
-                      gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: [MyColor.blue,MyColor.blue2]
-                      )
-                    ),
+                    height: height,
+                    decoration: BoxDecoration(
+                        // color: Colors.orange
+                        gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [MyColor.blue2, MyColor.blue])),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-
-
                         AutoSizeText(
                           "DongHyun Goh's",
                           maxLines: 1,
@@ -69,8 +67,6 @@ class _HomeState extends State<Home> {
                               color: Colors.white,
                               fontSize: MediaQuery.of(context).size.height / 7),
                         ),
-
-
                         AutoSizeText(
                           "Portfolio",
                           maxLines: 1,
@@ -85,16 +81,51 @@ class _HomeState extends State<Home> {
                 );
               })),
           SliverToBoxAdapter(
-            child: Container(
-              height: MediaQuery.of(context).size.height,
-              child: ,
-            )
-          ),
+              child: Container(
+            color: MyColor.blue,
+            // height: MediaQuery.of(context).size.height,
+            child: Column(
+              children: [
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.33,
+                  padding: EdgeInsets.only(left: 30, right: 30),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.height * 0.2,
+                        height: MediaQuery.of(context).size.height * 0.2,
+                        decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image:
+                                  Image.asset('img/my_photo.jpeg').image,
+                              fit: BoxFit.fitWidth,
+                            ),
+                            shape: BoxShape.circle),
+                      ),
+                      SizedBox(height: 50,),
+                      Text("DongHyun Goh",style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 56
+                      ),)
+                    ],
+                  ),
+                ),
+                Container(
+                  height: MediaQuery.of(context).size.height * 0.6,
+                  decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.only(
+                          topRight: Radius.circular(30),
+                          topLeft: Radius.circular(30))),
+                )
+              ],
+            ),
+          )),
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-        },
+        onPressed: () {},
       ),
     );
   }
