@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gohdong/home.dart';
+import 'package:gohdong/splash.dart';
 
 
 void main() {
@@ -12,17 +13,19 @@ class MyApp extends StatefulWidget {
 }
 
 class MyAppState extends State<MyApp> {
-  GlobalKey materialKey = GlobalKey<MyAppState>();
-  bool isDarkMode = true;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      key: materialKey,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          brightness: Brightness.light),
-      home: Home(parentKey: materialKey,),
+          brightness: Brightness.dark),
+      routes: {
+        "/": (context) => SplashScreen(),
+        // "/root" : (context) => Root(),
+        "/home": (context) => Home(),
+      },
+      initialRoute: "/",
     );
   }
 
