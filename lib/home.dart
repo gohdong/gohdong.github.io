@@ -22,56 +22,59 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     print(MediaQuery.of(context).size.width);
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: MyColor.black,
-        title: Text(
-          "포트폴리오",
-          style: TextStyle(fontWeight: FontWeight.bold),
-        ),
-        actions: [
-          IconButton(
-            icon: Icon(FontAwesomeIcons.github),
-            onPressed: () async {
-              await launch('https://github.com/gohdong');
-            },
+    return Container(
+      child: Scaffold(
+        appBar: AppBar(
+          backgroundColor: MyColor.black,
+          title: Text(
+            "포트폴리오",
+            style: TextStyle(fontWeight: FontWeight.bold),
           ),
-          IconButton(
-            icon: Icon(
-              FontAwesomeIcons.userPlus,
-              size: 20,
+          actions: [
+            IconButton(
+              icon: Icon(FontAwesomeIcons.github),
+              onPressed: () async {
+                await launch('https://github.com/gohdong');
+              },
             ),
-            onPressed: () async {
-              await launch('https://github.com/gohdong');
-            },
-          ),
-          SizedBox(
-            width: 20,
-          )
-        ],
-        centerTitle: false,
-        elevation: 0,
-      ),
-      body: Container(
-        color: MyColor.black,
-        padding: EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
-        child: ListView(
-          physics: BouncingScrollPhysics(),
-          children: [
-            myProfile(),
-            Divider(
-              height: 40,
+            IconButton(
+              icon: Icon(
+                FontAwesomeIcons.userPlus,
+                size: 20,
+              ),
+              onPressed: () async {
+                await launch('https://github.com/gohdong');
+              },
             ),
-            myCareer(),
-            Divider(
-              height: 40,
-            ),
-            myProject(),
-            Divider(
-              height: 40,
-            ),
-            myAward()
+            SizedBox(
+              width: 20,
+            )
           ],
+          centerTitle: false,
+          elevation: 0,
+        ),
+        body: Container(
+          color: MyColor.black,
+          padding: EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 10),
+          width: MediaQuery.of(context).size.width,
+          child: ListView(
+            physics: BouncingScrollPhysics(),
+            children: [
+              myProfile(),
+              Divider(
+                height: 40,
+              ),
+              myCareer(),
+              Divider(
+                height: 40,
+              ),
+              myProject(),
+              Divider(
+                height: 40,
+              ),
+              myAward()
+            ],
+          ),
         ),
       ),
     );
@@ -191,22 +194,23 @@ class _HomeState extends State<Home> {
         SizedBox(
           width: 20,
         ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              title,
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            Text(
-              subTitle,
-              style: TextStyle(
-                fontSize: 15,
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                title,
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
-            ),
-          ],
+              Text(
+                subTitle,
+                style: TextStyle(
+                  fontSize: 15,
+                ),
+              ),
+            ],
+          ),
         ),
-        Expanded(child: Container()),
         actions == null ? Container() : actions
       ],
     );
