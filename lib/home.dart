@@ -11,6 +11,7 @@ import 'package:gohdong/award_detail.dart';
 import 'package:gohdong/color.dart';
 import 'package:gohdong/main.dart';
 import 'package:gohdong/profile.dart';
+import 'package:gohdong/project_detail.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
@@ -172,6 +173,57 @@ class _HomeState extends State<Home> {
     );
   }
 
+  Widget videoCell({
+    String imgPath = "",
+    String title = "tt",
+    String subTitle = "",
+    Widget actions,
+  }) {
+    return Row(
+      children: [
+        Container(
+          height: 70,
+          width: 70,
+          decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(29),
+              image: DecorationImage(
+                image: Image.asset(imgPath).image,
+                fit: BoxFit.fitWidth,
+              )),
+        ),
+        SizedBox(
+          width: 20,
+        ),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  Text(
+                    title,
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(width: 20,),
+                  Icon(Icons.ondemand_video)
+                ],
+              ),
+              Text(
+                subTitle,
+                style: TextStyle(
+                  fontSize: 15,
+                ),
+              ),
+            ],
+          ),
+        ),
+        actions == null ? Container() : actions
+      ],
+    );
+  }
+
+
   Widget profileCell({
     String imgPath = "",
     String title = "tt",
@@ -228,11 +280,16 @@ class _HomeState extends State<Home> {
         SizedBox(
           height: 20,
         ),
-        profileCell(
-            imgPath: 'img/selab.png',
-            title: "SE Lab",
-            subTitle: "2019.10 ~ 2019.12",
-            actions: actionLikeMelon('대학 연구실 어플리케이션', FontAwesomeIcons.flask)),
+        InkWell(
+          onTap: (){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProjectDetailVideo(),));
+          },
+          child: profileCell(
+              imgPath: 'img/selab.png',
+              title: "SE Lab",
+              subTitle: "2019.10 ~ 2019.12",
+              actions: actionLikeMelon('대학 연구실 어플리케이션', FontAwesomeIcons.flask)),
+        ),
         SizedBox(
           height: 20,
         ),
@@ -272,21 +329,35 @@ class _HomeState extends State<Home> {
         SizedBox(
           height: 20,
         ),
-        profileCell(
-            imgPath: 'img/fingerprint.png',
-            title: "핑거프린트",
-            subTitle: "2020.08 ~ 2020.10",
-            actions:
-                actionLikeMelon('O2O 클라우드 프린팅 서비스', FontAwesomeIcons.print)),
+        InkWell(
+          onTap: (){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProjectDetailVideo(
+              videoID: "lpMKJQNXHA0",
+            ),));
+          },
+          child: videoCell(
+              imgPath: 'img/fingerprint.png',
+              title: "핑거프린트",
+              subTitle: "2020.08 ~ 2020.10",
+              actions:
+                  actionLikeMelon('O2O 클라우드 프린팅 서비스', FontAwesomeIcons.print)),
+        ),
         SizedBox(
           height: 20,
         ),
-        profileCell(
-            imgPath: 'img/funanifarm.png',
-            title: "펴나니팜",
-            subTitle: "2020.09 ~ 2021.04",
-            actions: actionLikeMelon(
-                'IoT를 이용한 버섯 재배 컨테이너', FontAwesomeIcons.seedling)),
+        InkWell(
+          onTap: (){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProjectDetailVideo(
+              videoID: "c9Xfc2cKpM8",
+            ),));
+          },
+          child: videoCell(
+              imgPath: 'img/funanifarm.png',
+              title: "펴나니팜",
+              subTitle: "2020.09 ~ 2021.04",
+              actions: actionLikeMelon(
+                  'IoT를 이용한 버섯 재배 컨테이너', FontAwesomeIcons.seedling)),
+        ),
         SizedBox(
           height: 20,
         ),
@@ -435,7 +506,7 @@ class _HomeState extends State<Home> {
           child: profileCell(
               imgPath: 'img/university.png',
               title: "2020 Erica Software-Up 제 5회 창업 아이디어톤",
-              subTitle: "2019.10.07",
+              subTitle: "2020.10.07",
               actions: actionLikeMelon('최우수상', FontAwesomeIcons.award)),
         ),
         SizedBox(

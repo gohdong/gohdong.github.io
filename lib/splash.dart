@@ -49,19 +49,24 @@ class _SplashScreenState extends State<SplashScreen> {
         //     image: DecorationImage(
         //         image: Image.asset('assets/img/splash.png').image,
         //         fit: BoxFit.fill)),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+        child: Stack(
           children: [
-            Center(
-              child: Container(
-                width: MediaQuery.of(context).size.width * 0.4,
-                child: FadeInImage(
-                  image: Image.asset('img/talk.png').image,
-                  fadeInDuration: Duration(seconds: 1),
-                  placeholder: Image.memory(kTransparentImage).image,
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Center(
+                  child: Container(
+                    width: MediaQuery.of(context).size.width * 0.4,
+                    child: FadeInImage(
+                      image: Image.asset('img/talk.png').image,
+                      fadeInDuration: Duration(seconds: 1),
+                      placeholder: Image.memory(kTransparentImage).image,
+                    ),
+                  ),
                 ),
-              ),
+              ],
             ),
+            Text("포트폴리오고동현쌍용천안한양대육군소프트웨어학부컴퓨터자연대표영화어플",style: TextStyle(color: Colors.transparent),)
           ],
         ),
       ),
