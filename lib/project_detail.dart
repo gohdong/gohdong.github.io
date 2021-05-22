@@ -46,10 +46,12 @@ class _ProjectDetailVideoState extends State<ProjectDetailVideo> {
           // ),
 
           Padding(
-            padding: EdgeInsets.only(left: 20),
-            child: YoutubePlayerIFrame(
-              controller: _controller,
-              aspectRatio: 16 / 9,
+            padding: EdgeInsets.only(left: 20,right: 20),
+            child: Center(
+              child: YoutubePlayerIFrame(
+                controller: _controller,
+                aspectRatio: 16 / 9,
+              ),
             ),
           ),
           Positioned(

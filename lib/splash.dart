@@ -66,7 +66,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 ),
               ],
             ),
-            Text("포트폴리오고동현쌍용천안한양대육군소프트웨어학부컴퓨터자연대표영화어플",style: TextStyle(color: Colors.transparent),)
+            Text("포트폴리오고동현쌍용천안한양대육군소프트웨어학부컴퓨터자연대표영화어플펴나니팜슐랭대잇다온테이블통신버섯상권커뮤니티컨테이너채팅서비스",style: TextStyle(color: Colors.transparent),)
           ],
         ),
       ),

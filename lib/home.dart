@@ -150,7 +150,7 @@ class _HomeState extends State<Home> {
           imgPath: 'img/university.png',
           title: "한양대학교 ERICA",
           subTitle: "2016.03 ~ ",
-          actions: actionLikeMelon('소프트웨어학부 컴퓨터전공', FontAwesomeIcons.fileCode),
+          actions: actionLikeMelon('소프트웨어학부\n컴퓨터전공', FontAwesomeIcons.fileCode),
         ),
         SizedBox(
           height: 20,
@@ -160,7 +160,7 @@ class _HomeState extends State<Home> {
             title: "육군 제 75사단",
             subTitle: "2017.04 ~ 2019.01",
             actions: actionLikeMelon(
-                '무선장비운용병 병장 만기전역', FontAwesomeIcons.crosshairs)),
+                '무선장비운용병\n병장 만기전역', FontAwesomeIcons.crosshairs)),
         SizedBox(
           height: 20,
         ),
@@ -288,7 +288,7 @@ class _HomeState extends State<Home> {
               imgPath: 'img/selab.png',
               title: "SE Lab",
               subTitle: "2019.10 ~ 2019.12",
-              actions: actionLikeMelon('대학 연구실 어플리케이션', FontAwesomeIcons.flask)),
+              actions: actionLikeMelon('대학 연구실\n어플리케이션', FontAwesomeIcons.flask)),
         ),
         SizedBox(
           height: 20,
@@ -297,7 +297,7 @@ class _HomeState extends State<Home> {
           imgPath: 'img/gva.png',
           title: "GVA",
           subTitle: "2019.10 ~ 2019.12",
-          actions: actionLikeMelon('영화예매 어플리케이션', FontAwesomeIcons.film),
+          actions: actionLikeMelon('영화예매\n어플리케이션', FontAwesomeIcons.film),
         ),
         SizedBox(
           height: 20,
@@ -307,7 +307,7 @@ class _HomeState extends State<Home> {
             title: "테이블 박스",
             subTitle: "2019.12 ~ 2020.03",
             actions:
-                actionLikeMelon('모바일 키오스크 서비스', FontAwesomeIcons.utensils)),
+                actionLikeMelon('모바일\n키오스크 서비스', FontAwesomeIcons.utensils)),
         SizedBox(
           height: 20,
         ),
@@ -316,7 +316,7 @@ class _HomeState extends State<Home> {
             title: "잇다온",
             subTitle: "2020.04 ~ 2020.04",
             actions:
-                actionLikeMelon('경기도 지역화폐 지도', FontAwesomeIcons.mapMarkerAlt)),
+                actionLikeMelon('경기도\n지역화폐 지도', FontAwesomeIcons.mapMarkerAlt)),
         SizedBox(
           height: 20,
         ),
@@ -325,7 +325,7 @@ class _HomeState extends State<Home> {
             title: "대슐랭가이드",
             subTitle: "2020.06 ~ 2020.08",
             actions:
-                actionLikeMelon('대학상권 먹거리 커뮤니티', FontAwesomeIcons.iceCream)),
+                actionLikeMelon('대학상권\n먹거리 커뮤니티', FontAwesomeIcons.iceCream)),
         SizedBox(
           height: 20,
         ),
@@ -340,7 +340,7 @@ class _HomeState extends State<Home> {
               title: "핑거프린트",
               subTitle: "2020.08 ~ 2020.10",
               actions:
-                  actionLikeMelon('O2O 클라우드 프린팅 서비스', FontAwesomeIcons.print)),
+                  actionLikeMelon('O2O 클라우드\n프린팅 서비스', FontAwesomeIcons.print)),
         ),
         SizedBox(
           height: 20,
@@ -356,7 +356,7 @@ class _HomeState extends State<Home> {
               title: "펴나니팜",
               subTitle: "2020.09 ~ 2021.04",
               actions: actionLikeMelon(
-                  'IoT를 이용한 버섯 재배 컨테이너', FontAwesomeIcons.seedling)),
+                  'IoT를 이용한\n버섯 재배 컨테이너', FontAwesomeIcons.seedling)),
         ),
         SizedBox(
           height: 20,
@@ -366,7 +366,7 @@ class _HomeState extends State<Home> {
             title: "워커토키",
             subTitle: "2020.12 ~ 2021.02",
             actions: actionLikeMelon(
-                '알바생과 사장님을 잇는 직원관리 솔루션', FontAwesomeIcons.link)),
+                '알바생과 사장님을\n잇는 직원관리 솔루션', FontAwesomeIcons.link)),
         SizedBox(
           height: 20,
         ),
@@ -375,7 +375,7 @@ class _HomeState extends State<Home> {
             title: "에이고라",
             subTitle: "2021.01 ~ 2021.01",
             actions:
-                actionLikeMelon('단 1분만 존재하는 채팅 서비스', FontAwesomeIcons.comment)),
+                actionLikeMelon('단 1분만 존재하는\n채팅 서비스', FontAwesomeIcons.comment)),
         SizedBox(
           height: 20,
         ),
@@ -384,7 +384,7 @@ class _HomeState extends State<Home> {
             title: "Day Night Time Picker",
             subTitle: "2021.02 ~ 2021.02",
             actions:
-                actionLikeMelon('애니메이션이 함께 있는 타임피커', FontAwesomeIcons.code)),
+                actionLikeMelon('애니메이션이\n함께 있는 타임피커', FontAwesomeIcons.code)),
         SizedBox(
           height: 20,
         ),
@@ -393,7 +393,7 @@ class _HomeState extends State<Home> {
             title: "오토캠핑",
             subTitle: "2021.03 ~ 2021.04",
             actions:
-                actionLikeMelon('캠핑카 카쉐어링 서비스', FontAwesomeIcons.campground)),
+                actionLikeMelon('캠핑카\n카쉐어링 서비스', FontAwesomeIcons.campground)),
       ],
     );
   }
