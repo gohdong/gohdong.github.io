@@ -1,8 +1,16 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:gohdong/award_detail.dart';
+import 'package:gohdong/award_detail.dart';
+import 'package:gohdong/award_detail.dart';
+import 'package:gohdong/award_detail.dart';
+import 'package:gohdong/award_detail.dart';
+import 'package:gohdong/award_detail.dart';
+import 'package:gohdong/award_detail.dart';
 import 'package:gohdong/color.dart';
 import 'package:gohdong/main.dart';
+import 'package:gohdong/profile.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Home extends StatefulWidget {
@@ -13,6 +21,7 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
+    print(MediaQuery.of(context).size.width);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: MyColor.black,
@@ -68,42 +77,48 @@ class _HomeState extends State<Home> {
     );
   }
 
-
-
   Widget myProfile() {
-    return Row(
-      children: [
-        Container(
-          height: 90,
-          width: 90,
-          decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(38),
-              image: DecorationImage(
-                  image: Image.asset('img/my_photo.jpeg').image,
-                  fit: BoxFit.fitWidth)),
-        ),
-        SizedBox(
-          width: 20,
-        ),
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              "고동현",
-              style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
-            ),
-            Text(
-              "DongHyun Goh",
-              style: TextStyle(
-                fontSize: 20,
+    return InkWell(
+      onTap: () {
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) => ProfileDetail(),));
+      },
+      child: Row(
+        children: [
+          Container(
+            height: 90,
+            width: 90,
+            decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(38),
+                image: DecorationImage(
+                    image: Image.asset('img/my_photo.jpeg').image,
+                    fit: BoxFit.fitWidth)),
+          ),
+          SizedBox(
+            width: 20,
+          ),
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "고동현",
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
               ),
-            ),
-          ],
-        ),
-        Expanded(child: Container()),
-        actionLikeMelon("Nothing I Can\'t Make", Icons.thumb_up_alt_outlined,)
-      ],
+              Text(
+                "DongHyun Goh",
+                style: TextStyle(
+                  fontSize: 20,
+                ),
+              ),
+            ],
+          ),
+          Expanded(child: Container()),
+          actionLikeMelon(
+            "Nothing I Can\'t Make",
+            Icons.thumb_up_alt_outlined,
+          )
+        ],
+      ),
     );
   }
 
@@ -117,14 +132,13 @@ class _HomeState extends State<Home> {
               color: MyColor.grey, fontWeight: FontWeight.bold, fontSize: 15),
         ),
         SizedBox(
-          height: 10,
+          height: 20,
         ),
         profileCell(
-          imgPath: 'img/high_school.jpeg',
-          title: "천안쌍용고등학교",
-          subTitle: "2012.03 ~ 2015.02",
-            actions: actionLikeMelon('자연계열',  FontAwesomeIcons.vial)
-        ),
+            imgPath: 'img/high_school.jpeg',
+            title: "천안쌍용고등학교",
+            subTitle: "2012.03 ~ 2015.02",
+            actions: actionLikeMelon('자연계열', FontAwesomeIcons.vial)),
         SizedBox(
           height: 20,
         ),
@@ -132,7 +146,7 @@ class _HomeState extends State<Home> {
           imgPath: 'img/university.png',
           title: "한양대학교 ERICA",
           subTitle: "2016.03 ~ ",
-          actions: actionLikeMelon('소프트웨어학부 컴퓨터전공',  FontAwesomeIcons.fileCode),
+          actions: actionLikeMelon('소프트웨어학부 컴퓨터전공', FontAwesomeIcons.fileCode),
         ),
         SizedBox(
           height: 20,
@@ -150,8 +164,7 @@ class _HomeState extends State<Home> {
             imgPath: 'img/funani.png',
             title: "TEAM FUNANI",
             subTitle: "2019.08 ~ 2021.04",
-            actions: actionLikeMelon(
-                '대표', FontAwesomeIcons.bomb)),
+            actions: actionLikeMelon('대표', FontAwesomeIcons.bomb)),
       ],
     );
   }
@@ -199,7 +212,7 @@ class _HomeState extends State<Home> {
     );
   }
 
-  Widget myProject(){
+  Widget myProject() {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -209,14 +222,13 @@ class _HomeState extends State<Home> {
               color: MyColor.grey, fontWeight: FontWeight.bold, fontSize: 15),
         ),
         SizedBox(
-          height: 10,
+          height: 20,
         ),
         profileCell(
             imgPath: 'img/selab.png',
             title: "SE Lab",
             subTitle: "2019.10 ~ 2019.12",
-            actions: actionLikeMelon('대학 연구실 어플리케이션',  FontAwesomeIcons.flask)
-        ),
+            actions: actionLikeMelon('대학 연구실 어플리케이션', FontAwesomeIcons.flask)),
         SizedBox(
           height: 20,
         ),
@@ -224,16 +236,17 @@ class _HomeState extends State<Home> {
           imgPath: 'img/gva.png',
           title: "GVA",
           subTitle: "2019.10 ~ 2019.12",
-          actions: actionLikeMelon('영화예매 어플리케이션',  FontAwesomeIcons.film),
-        ),SizedBox(
+          actions: actionLikeMelon('영화예매 어플리케이션', FontAwesomeIcons.film),
+        ),
+        SizedBox(
           height: 20,
         ),
         profileCell(
             imgPath: 'img/tablebox.png',
             title: "테이블 박스",
             subTitle: "2019.12 ~ 2020.03",
-            actions: actionLikeMelon(
-                '모바일 키오스크 서비스', FontAwesomeIcons.utensils)),
+            actions:
+                actionLikeMelon('모바일 키오스크 서비스', FontAwesomeIcons.utensils)),
         SizedBox(
           height: 20,
         ),
@@ -241,8 +254,8 @@ class _HomeState extends State<Home> {
             imgPath: 'img/daon.png',
             title: "잇다온",
             subTitle: "2020.04 ~ 2020.04",
-            actions: actionLikeMelon(
-                '경기도 지역화폐 지도', FontAwesomeIcons.mapMarkerAlt)),
+            actions:
+                actionLikeMelon('경기도 지역화폐 지도', FontAwesomeIcons.mapMarkerAlt)),
         SizedBox(
           height: 20,
         ),
@@ -250,8 +263,8 @@ class _HomeState extends State<Home> {
             imgPath: 'img/daeshelin.png',
             title: "대슐랭가이드",
             subTitle: "2020.06 ~ 2020.08",
-            actions: actionLikeMelon(
-                '대학상권 먹거리 커뮤니티', FontAwesomeIcons.iceCream)),
+            actions:
+                actionLikeMelon('대학상권 먹거리 커뮤니티', FontAwesomeIcons.iceCream)),
         SizedBox(
           height: 20,
         ),
@@ -259,8 +272,8 @@ class _HomeState extends State<Home> {
             imgPath: 'img/fingerprint.png',
             title: "핑거프린트",
             subTitle: "2020.08 ~ 2020.10",
-            actions: actionLikeMelon(
-                'O2O 클라우드 프린팅 서비스', FontAwesomeIcons.print)),
+            actions:
+                actionLikeMelon('O2O 클라우드 프린팅 서비스', FontAwesomeIcons.print)),
         SizedBox(
           height: 20,
         ),
@@ -286,8 +299,8 @@ class _HomeState extends State<Home> {
             imgPath: 'img/agora.png',
             title: "에이고라",
             subTitle: "2021.01 ~ 2021.01",
-            actions: actionLikeMelon(
-                '단 1분만 존재하는 채팅 서비스', FontAwesomeIcons.comment)),
+            actions:
+                actionLikeMelon('단 1분만 존재하는 채팅 서비스', FontAwesomeIcons.comment)),
         SizedBox(
           height: 20,
         ),
@@ -295,8 +308,8 @@ class _HomeState extends State<Home> {
             imgPath: 'img/flutter.png',
             title: "Day Night Time Picker",
             subTitle: "2021.02 ~ 2021.02",
-            actions: actionLikeMelon(
-                '애니메이션이 함께 있는 타임피커', FontAwesomeIcons.code)),
+            actions:
+                actionLikeMelon('애니메이션이 함께 있는 타임피커', FontAwesomeIcons.code)),
         SizedBox(
           height: 20,
         ),
@@ -304,8 +317,8 @@ class _HomeState extends State<Home> {
             imgPath: 'img/autocamping.png',
             title: "오토캠핑",
             subTitle: "2021.03 ~ 2021.04",
-            actions: actionLikeMelon(
-                '캠핑카 카쉐어링 서비스', FontAwesomeIcons.campground)),
+            actions:
+                actionLikeMelon('캠핑카 카쉐어링 서비스', FontAwesomeIcons.campground)),
       ],
     );
   }
@@ -347,67 +360,109 @@ class _HomeState extends State<Home> {
               color: MyColor.grey, fontWeight: FontWeight.bold, fontSize: 15),
         ),
         SizedBox(
-          height: 10,
+          height: 20,
         ),
-        profileCell(
-            imgPath: 'img/army.png',
-            title: "통신관계관 집체교육 우수 유공",
-            subTitle: "2018.06.29",
-            actions: actionLikeMelon('사단장급 표창',  FontAwesomeIcons.award)
+        InkWell(
+          onTap: (){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => AwardDetail(
+              backGroundImg: 'img/army_educate_award.png',
+            ),));
+          },
+          child: profileCell(
+              imgPath: 'img/army.png',
+              title: "통신관계관 집체교육 우수 유공",
+              subTitle: "2018.06.29",
+              actions: actionLikeMelon('사단장급 표창', FontAwesomeIcons.award)),
         ),
         SizedBox(
           height: 20,
         ),
-        profileCell(
-            imgPath: 'img/army.png',
-            title: "정보 유통 훈련 유공 표창",
-            subTitle: "2018.11.12",
-            actions: actionLikeMelon('사단장급 표창',  FontAwesomeIcons.award)
+        InkWell(
+          onTap: (){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => AwardDetail(
+              backGroundImg: 'img/train_award.png',
+            ),));
+          },
+          child: profileCell(
+              imgPath: 'img/army.png',
+              title: "정보 유통 훈련 유공 표창",
+              subTitle: "2018.11.12",
+              actions: actionLikeMelon('사단장급 표창', FontAwesomeIcons.award)),
         ),
         SizedBox(
           height: 20,
         ),
-        profileCell(
-            imgPath: 'img/university.png',
-            title: "2019 Erica Software-Up 창업 아이디어톤",
-            subTitle: "2019.09.28",
-            actions: actionLikeMelon('우수상',  FontAwesomeIcons.award)
+        InkWell(
+          onTap: (){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => AwardDetail(
+              backGroundImg: 'img/idea_3rd_award.png',
+            ),));
+          },
+          child: profileCell(
+              imgPath: 'img/university.png',
+              title: "2019 Erica Software-Up 창업 아이디어톤",
+              subTitle: "2019.09.28",
+              actions: actionLikeMelon('우수상', FontAwesomeIcons.award)),
         ),
         SizedBox(
           height: 20,
         ),
-        profileCell(
-            imgPath: 'img/university.png',
-            title: "2020 제 2회 SW창업 메이커톤",
-            subTitle: "2020.09.21",
-            actions: actionLikeMelon('최우수상',  FontAwesomeIcons.award)
+        InkWell(
+          onTap: (){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => AwardDetail(
+              backGroundImg: 'img/maker_award.png',
+            ),));
+          },
+          child: profileCell(
+              imgPath: 'img/university.png',
+              title: "2020 제 2회 SW창업 메이커톤",
+              subTitle: "2020.09.21",
+              actions: actionLikeMelon('최우수상', FontAwesomeIcons.award)),
         ),
         SizedBox(
           height: 20,
         ),
-        profileCell(
-            imgPath: 'img/university.png',
-            title: "2020 Erica Software-Up 제 5회 창업 아이디어톤",
-            subTitle: "2019.10.07",
-            actions: actionLikeMelon('우수상',  FontAwesomeIcons.award)
+        InkWell(
+          onTap: (){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => AwardDetail(
+              backGroundImg: 'img/idea_2nd_award.png',
+            ),));
+          },
+          child: profileCell(
+              imgPath: 'img/university.png',
+              title: "2020 Erica Software-Up 제 5회 창업 아이디어톤",
+              subTitle: "2019.10.07",
+              actions: actionLikeMelon('최우수상', FontAwesomeIcons.award)),
         ),
         SizedBox(
           height: 20,
         ),
-        profileCell(
-            imgPath: 'img/aabb.jpg',
-            title: "2020 안산 메이커 창업 페스티벌",
-            subTitle: "2020.11.14",
-            actions: actionLikeMelon('전시우수상',  FontAwesomeIcons.award)
+        InkWell(
+          onTap: (){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => AwardDetail(
+              backGroundImg: 'img/demo_award.JPG',
+            ),));
+          },
+          child: profileCell(
+              imgPath: 'img/aabb.jpg',
+              title: "2020 안산 메이커 창업 페스티벌",
+              subTitle: "2020.11.14",
+              actions: actionLikeMelon('전시우수상', FontAwesomeIcons.award)),
         ),
         SizedBox(
           height: 20,
         ),
-        profileCell(
-            imgPath: 'img/university.png',
-            title: "2020 HESH 전국 대학생 SW창업 메이커톤",
-            subTitle: "2020.12.07",
-            actions: actionLikeMelon('장려상',  FontAwesomeIcons.award)
+        InkWell(
+          onTap: (){
+            Navigator.of(context).push(MaterialPageRoute(builder: (context) => AwardDetail(
+              backGroundImg: 'img/hesh_award.png',
+            ),));
+          },
+          child: profileCell(
+              imgPath: 'img/university.png',
+              title: "2020 HESH 전국 대학생 SW창업 메이커톤",
+              subTitle: "2020.12.07",
+              actions: actionLikeMelon('장려상', FontAwesomeIcons.award)),
         ),
       ],
     );

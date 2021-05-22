@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:gohdong/home.dart';
 import 'package:gohdong/splash.dart';
-
+import 'package:intl/intl.dart';
 
 void main() {
+  Intl.defaultLocale = 'ko_KR';
   runApp(MyApp());
 }
 

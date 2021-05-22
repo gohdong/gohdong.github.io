@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:gohdong/home.dart';
 import 'package:transparent_image/transparent_image.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -26,8 +27,9 @@ class _SplashScreenState extends State<SplashScreen> {
       Duration(milliseconds: 2000),
           (Timer t) {
         _everySecond.cancel();
-          Navigator.of(context).pushReplacementNamed("/home");
+          Navigator.of(context).pushReplacement(new MaterialPageRoute(builder: (context) => Home(),));
         }
+
     );
   }
 
